@@ -25,3 +25,7 @@ def test_ac02_lowercase_and_spaces_is_accepted():
 
 def test_ac04_invalid_code_shows_error_message():
     assert check_code("TEST1234", BEN, 8000, TODAY)== "This discount code does not exist."
+
+
+def test_ac4_invalid_code_order_total_is_84_95():
+    assert order_total(8000, "TEST1234", BEN, TODAY) == 8495

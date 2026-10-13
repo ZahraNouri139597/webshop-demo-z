@@ -6,10 +6,10 @@ def calculate_discount(subtotal_cents, percent):
 #def order_total(subtotal_cent,code,email,today):
    # return 7695
 
-def order_total(subtotal_cent, code, email, today):
-   code= code.strip().upper()
-   discount= subtotal_cent* CODES[code]["percent"]//100
-   return subtotal_cent - discount + SHIPPING_CENTS
+#def order_total(subtotal_cent, code, email, today):
+   #code= code.strip().upper()
+  # discount= subtotal_cent* CODES[code]["percent"]//100
+   #return subtotal_cent - discount + SHIPPING_CENTS
 
 
 def check_code(code, email, subtotal_cent, today):
@@ -19,3 +19,14 @@ def check_code(code, email, subtotal_cent, today):
         return "This discount code does not exist."
     else:
         return "OK"
+
+
+def order_total(subtotal_cent, code, email, today):
+    result = check_code(code, email, subtotal_cent, today)
+
+    if result != "OK":
+        return subtotal_cent + SHIPPING_CENTS
+
+    code = code.strip().upper()
+    discount = subtotal_cent * CODES[code]["percent"] // 100
+    return subtotal_cent - discount + SHIPPING_CENTS    
