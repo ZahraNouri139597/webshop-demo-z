@@ -17,8 +17,11 @@ def check_code(code, email, subtotal_cent, today):
 
     if code not in CODES:
         return "This discount code does not exist."
-    else:
-        return "OK"
+
+    if today > CODES[code]["expiry"]:
+        return f'This discount code expired on {CODES[code]["expiry"]}.'
+
+    return "OK"
 
 
 def order_total(subtotal_cent, code, email, today):

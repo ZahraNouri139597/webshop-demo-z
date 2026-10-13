@@ -29,3 +29,8 @@ def test_ac04_invalid_code_shows_error_message():
 
 def test_ac4_invalid_code_order_total_is_84_95():
     assert order_total(8000, "TEST1234", BEN, TODAY) == 8495
+
+
+#ac05
+def test_ac5_expired_code_shows_error_message():
+    assert check_code("SUMMER20", BEN, 15000, TODAY) == "This discount code expired on 2026-08-31."    
