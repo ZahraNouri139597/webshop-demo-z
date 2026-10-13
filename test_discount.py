@@ -1,6 +1,6 @@
 #from discount import calculate_discount
 from discount import calculate_discount, order_total
-#from discount import check_code
+from discount import check_code
 
 # Background: Given the current date is "2026-10-07"
 TODAY = "2026-10-07"
@@ -23,4 +23,5 @@ def test_ac02_lowercase_and_spaces_is_accepted():
     assert order_total(8000, "  spring10 ", BEN, TODAY) == 7695
 
 
-
+def test_ac04_invalid_code_shows_error_message():
+    assert check_code("TEST1234", BEN, 8000, TODAY)== "This discount code does not exist."
