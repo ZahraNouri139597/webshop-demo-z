@@ -21,3 +21,6 @@ def test_ac2_normalized_code_with_different_subtotal():
 
 def test_ac02_lowercase_and_spaces_is_accepted():
     assert order_total(8000, "  spring10 ", BEN, TODAY) == 7695
+
+
+
